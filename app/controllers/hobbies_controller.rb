@@ -46,7 +46,7 @@ class HobbiesController < ApplicationController
     redirect_to profile_users_path, notice: 'Yay! 🎉 Your hobby was successfully removed.'
   end
 
-  
+
   private
 
   def find_user
@@ -55,7 +55,7 @@ class HobbiesController < ApplicationController
   def set_hobby
     @hobby = Hobby.find(params[:id])
   end
-  
+
   def find_user
     @user = current_user
   end

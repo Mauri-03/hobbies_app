@@ -15,15 +15,23 @@ class BookingsController < ApplicationController
     @booking.hobby_id = Hobby.find(params[:hobby_id]).id
     @hobby = Hobby.find(params[:hobby_id])
   if @booking.save!
-      redirect_to hobbies_path, notice: 'Yay! :tada: You sent your request.'
+      redirect_to hobbies_path, notice: 'Yay! 🎉 You sent your request.'
     else
       render :new
     end
   end
   def edit
   end
-  def update
+  def confirm
+
   end
+
+  def delete
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to profile_users_path, notice: 'Ok! ❌ you have declined the request.'
+  end
+
 private
   def set_booking
     @booking = Booking.find(params[:id])
